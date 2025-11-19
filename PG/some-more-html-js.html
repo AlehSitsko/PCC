@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>Simple JS and HTML practice.</p>
+    <p>Simple calculator:</p>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <button id="addBtn">Add</button>
+    <p id="result"></p>
+    <button>Clear all fields</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const heading = document.querySelector('h1');
+            heading.style.color = 'blue';
+            heading.textContent += ' - Modified by JavaScript';
+            // Calculator functionality
+            const addBtn = document.getElementById('addBtn');
+            addBtn.addEventListener('click', function() {
+                const num1 = parseFloat(document.getElementById('num1').value);
+                const num2 = parseFloat(document.getElementById('num2').value);
+                const sum = num1 + num2;
+                document.getElementById('result').textContent = 'Result: ' + sum;
+            });
+            // Clear button functionality
+            const clearBtn = document.querySelector('button:last-of-type');
+            clearBtn.addEventListener('click', function() {
+                document.getElementById('num1').value = '';
+                document.getElementById('num2').value = '';
+                document.getElementById('result').textContent = '';
+            });
+        });
+    </script>
+    
+</body>
+</html>
