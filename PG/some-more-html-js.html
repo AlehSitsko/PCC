@@ -14,6 +14,10 @@
     <button id="addBtn">Add</button>
     <p id="result"></p>
     <button>Clear all fields</button>
+    <p> Check if word is a palindrome:</p>
+    <input type="text" id="palindromeInput" placeholder="Enter a word">
+    <button id="checkPalindromeBtn">Check</button>
+    <p id="palindromeResult"></p>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -34,6 +38,15 @@
                 document.getElementById('num1').value = '';
                 document.getElementById('num2').value = '';
                 document.getElementById('result').textContent = '';
+            });
+            // Palindrome check functionality
+            const checkPalindromeBtn = document.getElementById('checkPalindromeBtn');
+            checkPalindromeBtn.addEventListener('click', function() {
+                const input = document.getElementById('palindromeInput').value;
+                const reversed = input.split('').reverse().join('');
+                const isPalindrome = input === reversed;
+                document.getElementById('palindromeResult').textContent = isPalindrome ? 
+                    `"${input}" is a palindrome.` : `"${input}" is not a palindrome.`;
             });
         });
     </script>
