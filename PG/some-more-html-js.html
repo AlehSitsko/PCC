@@ -8,17 +8,19 @@
 <body>
     <h1>Hello, World!</h1>
     <p>Simple JS and HTML practice.</p>
+    <!-- Calculator -->
     <p>Simple calculator:</p>
     <input type="number" id="num1" placeholder="Enter first number">
     <input type="number" id="num2" placeholder="Enter second number">
     <button id="addBtn">Add</button>
     <p id="result"></p>
-    <button>Clear all fields</button>
+    <!-- Palindrome checker -->
     <p> Check if word is a palindrome:</p>
     <input type="text" id="palindromeInput" placeholder="Enter a word">
     <button id="checkPalindromeBtn">Check</button>
     <p id="palindromeResult"></p>
-
+    <!-- Clear button -->
+    <button id="clearBtn">Clear all fields</button>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const heading = document.querySelector('h1');
@@ -31,14 +33,7 @@
                 const num2 = parseFloat(document.getElementById('num2').value);
                 const sum = num1 + num2;
                 document.getElementById('result').textContent = 'Result: ' + sum;
-            });
-            // Clear button functionality
-            const clearBtn = document.querySelector('button:last-of-type');
-            clearBtn.addEventListener('click', function() {
-                document.getElementById('num1').value = '';
-                document.getElementById('num2').value = '';
-                document.getElementById('result').textContent = '';
-            });
+            });           
             // Palindrome check functionality
             const checkPalindromeBtn = document.getElementById('checkPalindromeBtn');
             checkPalindromeBtn.addEventListener('click', function() {
@@ -47,6 +42,15 @@
                 const isPalindrome = input === reversed;
                 document.getElementById('palindromeResult').textContent = isPalindrome ? 
                     `"${input}" is a palindrome.` : `"${input}" is not a palindrome.`;
+            });
+            // Clear all fields functionality
+            const clearBtn = document.getElementById('clearBtn');
+            clearBtn.addEventListener('click', function() {
+                document.getElementById('num1').value = '';
+                document.getElementById('num2').value = '';
+                document.getElementById('result').textContent = '';
+                document.getElementById('palindromeInput').value = '';
+                document.getElementById('palindromeResult').textContent = '';
             });
         });
     </script>
